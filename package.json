@@ -1,12 +1,12 @@
 {
-  "name": "pomod",
+  "name": "Verit",
   "version": "1.0.0",
-  "description": "",
+  "description": "its a simple app that uses a unique QR code to verify whether you are the rightful owner of the information holder",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Silulu",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.14.1",
