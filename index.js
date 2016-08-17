@@ -24,8 +24,13 @@ app.get('/transaction', function(req, res){
   res.render('transaction');
 });
 
+<<<<<<< HEAD
 app.get('/message', function(req, res){
   res.render('message');
+=======
+app.get('/verification', function(req, res){
+  res.render('verification');
+>>>>>>> 4400644b521026e031588d9c1aff7553e2ffa974
 });
 
 var port = process.env.port || 3007;
