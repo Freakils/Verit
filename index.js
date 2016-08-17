@@ -17,7 +17,7 @@ app.engine('hbs', expressHandlebars({defaultLayout: 'main'}));
 app.set('view engine', 'hbs');
 
 app.get('/', function(req, res){
-    res.render('light');
+    res.render('log-in');
 });
 
 app.get('/transaction', function(req, res){
