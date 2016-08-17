@@ -24,6 +24,10 @@ app.get('/transaction', function(req, res){
   res.render('transaction');
 });
 
+app.get('/message', function(req, res){
+  res.render('message');
+});
+
 var port = process.env.port || 3007;
 http.listen(port, function(){
     console.log('running at port :' , port)
