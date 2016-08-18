@@ -26,6 +26,7 @@ app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
+
 app.use(session({
   secret:'silulu',
   cookie:{maxAge:60000},
@@ -36,7 +37,12 @@ app.use(session({
 //setup handlebars
 app.engine('hbs', expressHandlebars({defaultLayout: 'main'}));
 app.set('view engine', 'hbs');
+<<<<<<< HEAD
 // app.use(myConnection(mysql,dbOptions,'single'))
+=======
+
+//app.use(myConnection(mysql,dbOptions,'single'))
+>>>>>>> e45f57810c66d6d8684104049085b3325caf7c67
 
 // app.get('/login-in', login.get);
 app.get('/', function(req,res){
@@ -74,7 +80,7 @@ app.post('/transaction', function(req, res){
 
 
 app.get('/unique-pin', function(req, res){
-  res.render('unique-pin', {layout : false});
+  res.render('unique-pin');
 });
 
 app.get('/message', function(req, res){
