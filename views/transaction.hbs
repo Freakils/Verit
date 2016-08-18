@@ -22,10 +22,7 @@
         var qrcode = document.getElementById("qrcode");
         qrcode.innerHTML = '';
         new QRCode(qrcode, value);
-
-
-
-    });
+      });
 
     var socket = io();
     socket.on('scan', function (data) {
