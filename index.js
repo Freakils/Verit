@@ -10,13 +10,13 @@ var login = require('./routes/login');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 //var cookieSession = require('')
-var dbOptions ={
-    host: 'localhost',
-    user: 'root',
-    password: 'lusindisomkiva',
-    database: 'verit'
-    // your connection details here
-}
+// var dbOptions ={
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'lusindisomkiva',
+//     database: 'verit'
+//     // your connection details here
+// }
 
 
 // parse application/x-www-form-urlencoded
@@ -37,8 +37,12 @@ app.use(session({
 //setup handlebars
 app.engine('hbs', expressHandlebars({defaultLayout: 'main'}));
 app.set('view engine', 'hbs');
+<<<<<<< HEAD
+// app.use(myConnection(mysql,dbOptions,'single'))
+=======
 
 //app.use(myConnection(mysql,dbOptions,'single'))
+>>>>>>> e45f57810c66d6d8684104049085b3325caf7c67
 
 // app.get('/login-in', login.get);
 app.get('/', function(req,res){
