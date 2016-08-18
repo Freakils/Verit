@@ -24,6 +24,13 @@
         var qrcode = document.getElementById("qrcode");
         qrcode.innerHTML = '';
         new QRCode(qrcode, value);
+      });
+
+    var socket = io();
+    socket.on('scan', function (data) {
+      $.get('/unique-pin', function(pageSection){
+          $('.container').html(pageSection)
+      });
     });
   </script>
 </div>
