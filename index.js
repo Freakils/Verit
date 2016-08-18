@@ -16,6 +16,16 @@ app.use(express.static('public'));
 app.engine('hbs', expressHandlebars({defaultLayout: 'main'}));
 app.set('view engine', 'hbs');
 
+
+io.on('connection', function (socket) {
+  //socket.emit('news', { hello: 'world' });
+  socket.on('scan', function (data) {
+    console.log('scanned data');
+
+    io.emit('scan', {});
+  });
+});
+
 app.get('/', function(req, res){
     res.render('log-in');
 });
@@ -26,7 +36,7 @@ app.get('/transaction', function(req, res){
 
 
 app.get('/unique-pin', function(req, res){
-  res.render('unique-pin');
+  res.render('unique-pin', {layout : false});
 });
 
 app.get('/message', function(req, res){
