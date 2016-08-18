@@ -8,4 +8,4 @@ how to use the app
 how to start the app
 * using node js
 * if there are no errors,go to the browser
-* open http://localhost:5000  
+* open http://localhost:5000

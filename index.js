@@ -1,9 +1,23 @@
 var express = require('express');
 var expressHandlebars = require('express-handlebars');
+var myConnection = require('express-myconnection');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var bodyParser = require('body-parser');
+var mysql = require('mysql');
+var login = require('./routes/login');
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+//var cookieSession = require('')
+var dbOptions ={
+    host: 'localhost',
+    user: 'root',
+    password: 'lusindisomkiva',
+    database: 'verit'
+    // your connection details here
+}
+
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -12,18 +26,29 @@ app.use(bodyParser.json())
 
 app.use(express.static('public'));
 
+app.use(session({
+  secret:'silulu',
+  cookie:{maxAge:60000},
+  resave:false,
+  saveUninitialized:true,
+}))
+
 //setup handlebars
 app.engine('hbs', expressHandlebars({defaultLayout: 'main'}));
 app.set('view engine', 'hbs');
+app.use(myConnection(mysql,dbOptions,'single'))
 
-app.get('/', function(req, res){
-    res.render('log-in');
-});
+// app.get('/login-in', login.get);
+app.get('/', function(req,res){
+  // console.log(input);
+  res.render('log-in');
+})
+app.post('/log-in', login.userLogin);
+
 
 app.get('/transaction', function(req, res){
   res.render('transaction');
 });
-
 
 app.get('/unique-pin', function(req, res){
   res.render('unique-pin');
