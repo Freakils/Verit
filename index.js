@@ -24,6 +24,7 @@ app.get('/transaction', function(req, res){
   res.render('transaction');
 });
 
+
 app.get('/unique-pin', function(req, res){
   res.render('unique-pin');
 });
@@ -35,6 +36,21 @@ app.get('/message', function(req, res){
 app.get('/verification', function(req, res){
   res.render('verification');
 });
+// =======
+// <<<<<<< HEAD
+// app.get('/unique-pin', function(req, res){
+//   res.render('unique-pin');
+// =======
+// <<<<<<< HEAD
+// app.get('/message', function(req, res){
+//   res.render('message');
+// =======
+// app.get('/verification', function(req, res){
+//   res.render('verification');
+// >>>>>>> 4400644b521026e031588d9c1aff7553e2ffa974
+// >>>>>>> d9bb1a41045a9619f497a54d541d1c4a0183c549
+// >>>>>>> master
+// });
 
 var port = process.env.port || 3007;
 http.listen(port, function(){
