@@ -3,7 +3,7 @@
 exports.get = function (req, res , next){
     var input = req.body;
 
-    console.log(input);
+    // console.log(input);
     var data = {
         username : input.username,
         password : input.password
@@ -14,13 +14,15 @@ exports.get = function (req, res , next){
         var query = "SELECT * From credentials WHERE username = ?";
 
         connection.query(query,[data.username],function (err, results){
-                // console.log(results);
-                res.redirect("/log-in");
+                console.log(results);
+                res.render("/log-in",{
+                  results: results
+                });
         });
     });
 };
 exports.userLogin = function(req, res, next) {
-    var input =req.body;
+    var input = req.body;
     console.log(input);
     var username = input.username;
         req.getConnection(function(err, connection) {

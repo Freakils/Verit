@@ -20,9 +20,9 @@ var dbOptions ={
 
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
@@ -42,7 +42,8 @@ app.use(myConnection(mysql,dbOptions,'single'))
 app.get('/', function(req,res){
   // console.log(input);
   res.render('log-in');
-})
+});
+
 app.post('/log-in', login.userLogin);
 
 
@@ -56,12 +57,21 @@ io.on('connection', function (socket) {
   });
 });
 
-
-
-
+/*
 app.get('/transaction', function(req, res){
+  // console.log(req.body);
   res.render('transaction');
 });
+*/
+
+app.post('/transaction', function(req, res){
+  //console.log('***********************************');
+  //console.log(req.body.username);
+
+  var username = req.body.username;
+  res.render('transaction', {username : username});
+});
+
 
 app.get('/unique-pin', function(req, res){
   res.render('unique-pin', {layout : false});
