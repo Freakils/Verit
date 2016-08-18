@@ -24,6 +24,18 @@ app.get('/transaction', function(req, res){
   res.render('transaction');
 });
 
+app.get('/unique-pin', function(req, res){
+  res.render('unique-pin');
+});
+
+app.get('/message', function(req, res){
+  res.render('message');
+});
+
+app.get('/verification', function(req, res){
+  res.render('verification');
+});
+
 var port = process.env.port || 3007;
 http.listen(port, function(){
     console.log('running at port :' , port)
