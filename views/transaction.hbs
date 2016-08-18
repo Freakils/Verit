@@ -27,10 +27,11 @@
 
     });
 
-
     var socket = io();
     socket.on('scan', function (data) {
-      alert('scanned!')
+      $.get('/unique-pin', function(pageSection){
+          $('.container').html(pageSection)
+      });
     });
   </script>
 </div>
