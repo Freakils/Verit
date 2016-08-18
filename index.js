@@ -9,6 +9,7 @@ var mysql = require('mysql');
 var login = require('./routes/login');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
+var verification = require('./routes/verification');
 //var cookieSession = require('')
 var dbOptions ={
     host: 'localhost',
@@ -80,6 +81,7 @@ app.get('/unique-pin', function(req, res){
 app.get('/message', function(req, res){
   res.render('message');
 });
+app.get('/verification', verification.show);
 
 app.get('/verification', function(req, res){
   res.render('verification');
