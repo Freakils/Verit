@@ -17,7 +17,7 @@ create table IF NOT EXISTS personal_details (
     foreign key (user_id) references credentials(id)
 );
 
-create table transactions (
+create table IF NOT transactions (
     id int primary key auto_increment,
     shop_name varchar(30),
     amount decimal(10.2),
